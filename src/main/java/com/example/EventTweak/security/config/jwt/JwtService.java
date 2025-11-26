@@ -1,6 +1,6 @@
 package com.example.EventTweak.security.config.jwt;
 
-import io.github.cdimascio.dotenv.Dotenv;
+//import io.github.cdimascio.dotenv.Dotenv;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -21,7 +21,7 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    private final Dotenv dotenv = Dotenv.load();
+//    private final Dotenv dotenv = Dotenv.load();
 
     public String generateToken(String email, String role){
         Map<String, Object> claims = new HashMap<>();
@@ -38,7 +38,7 @@ public class JwtService {
     }
 
     private SecretKey getKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(dotenv.get("JWT_SECRET"));
+        byte[] keyBytes = Decoders.BASE64.decode(System.getenv("JWT_SECRET"));
         return Keys.hmacShaKeyFor(keyBytes);
     }
 

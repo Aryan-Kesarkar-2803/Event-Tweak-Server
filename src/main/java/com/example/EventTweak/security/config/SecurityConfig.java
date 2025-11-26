@@ -2,7 +2,7 @@ package com.example.EventTweak.security.config;
 
 import com.example.EventTweak.model.io.user.ApiResponse;
 import com.example.EventTweak.security.config.jwt.JwtFilter;
-import io.github.cdimascio.dotenv.Dotenv;
+//import io.github.cdimascio.dotenv.Dotenv;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,7 +34,7 @@ public class SecurityConfig {
 
     private UserDetailsService userDetailsService;
     private JwtFilter jwtFilter;
-    private Dotenv dotenv = Dotenv.load();
+//    private Dotenv dotenv = Dotenv.load();
 
     SecurityConfig(UserDetailsService userDetailsService, JwtFilter jwtFilter){
         this.userDetailsService = userDetailsService;
@@ -47,7 +47,8 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers(dotenv.get("JWT_EXCLUDED_PATHS").split(","))
+//                        .requestMatchers(dotenv.get("JWT_EXCLUDED_PATHS").split(","))
+                        .requestMatchers(System.getenv("JWT_EXCLUDED_PATHS").split(","))
                         .permitAll()
                         .anyRequest()
                         .authenticated())
