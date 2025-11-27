@@ -83,7 +83,8 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("https://event-tweak-client.onrender.com/"));
+//        config.setAllowedOrigins(List.of("https://event-tweak-client.onrender.com/"));
+        config.setAllowedOrigins(List.of(System.getenv("CLIENT-URI")));
         config.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
