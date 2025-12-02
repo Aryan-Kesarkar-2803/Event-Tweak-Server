@@ -22,7 +22,7 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    private final Dotenv dotenv = Dotenv.load();
+//    private final Dotenv dotenv = Dotenv.load();
 
     public String generateToken(String email, String role){
         Map<String, Object> claims = new HashMap<>();

@@ -30,7 +30,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final ApplicationContext applicationContext ;
-    private final Dotenv dotenv = Dotenv.load();
+//    private final Dotenv dotenv = Dotenv.load();
 
 
     public JwtFilter(JwtService jwtService, ApplicationContext applicationContext){

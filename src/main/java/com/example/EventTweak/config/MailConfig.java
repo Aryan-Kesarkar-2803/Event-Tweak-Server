@@ -11,7 +11,7 @@ import java.util.Properties;
 @Configuration
 public class MailConfig {
 
-    private final Dotenv dotenv = Dotenv.load();
+//    private final Dotenv dotenv = Dotenv.load();
 
     @Bean
     public JavaMailSender mailSender(){

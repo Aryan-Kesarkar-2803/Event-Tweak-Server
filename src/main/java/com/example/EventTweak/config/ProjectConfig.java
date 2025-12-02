@@ -11,7 +11,7 @@ import java.util.Map;
 @Configuration
 public class ProjectConfig {
 
-    Dotenv dotenv = Dotenv.load();
+//    Dotenv dotenv = Dotenv.load();
     @Bean
     public Cloudinary getCloudinary(){
         Map<String, Object> config = new HashMap<>();

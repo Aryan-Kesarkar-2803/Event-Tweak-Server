@@ -35,7 +35,7 @@ public class SecurityConfig {
 
     private UserDetailsService userDetailsService;
     private JwtFilter jwtFilter;
-    private Dotenv dotenv = Dotenv.load();
+//    private Dotenv dotenv = Dotenv.load();
 
     SecurityConfig(UserDetailsService userDetailsService, JwtFilter jwtFilter){
         this.userDetailsService = userDetailsService;

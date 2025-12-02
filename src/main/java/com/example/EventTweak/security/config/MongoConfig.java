@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 @Configuration
 public class MongoConfig {
 
-    private final Dotenv dotenv = Dotenv.load();
+//    private final Dotenv dotenv = Dotenv.load();
 
 
     @Bean
