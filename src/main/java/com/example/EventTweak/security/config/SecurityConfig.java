@@ -3,6 +3,7 @@ package com.example.EventTweak.security.config;
 import com.example.EventTweak.model.io.user.ApiResponse;
 import com.example.EventTweak.security.config.jwt.JwtFilter;
 //import io.github.cdimascio.dotenv.Dotenv;
+import io.github.cdimascio.dotenv.Dotenv;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,7 +35,7 @@ public class SecurityConfig {
 
     private UserDetailsService userDetailsService;
     private JwtFilter jwtFilter;
-//    private Dotenv dotenv = Dotenv.load();
+    private Dotenv dotenv = Dotenv.load();
 
     SecurityConfig(UserDetailsService userDetailsService, JwtFilter jwtFilter){
         this.userDetailsService = userDetailsService;
@@ -83,8 +84,8 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-//        config.setAllowedOrigins(List.of("https://event-tweak-client.onrender.com/"));
         config.setAllowedOrigins(List.of(System.getenv("CLIENT-URI")));
+//        config.setAllowedOrigins(List.of(dotenv.get("CLIENT-URI")));
         config.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);

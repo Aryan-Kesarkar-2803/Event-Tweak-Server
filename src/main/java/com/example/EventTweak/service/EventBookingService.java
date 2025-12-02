@@ -50,7 +50,7 @@ public class EventBookingService {
             res = eventBookingRequestRepoImpl.deleteBookingRequest(idToDelete);
         }
 
-        if( res!=null  &&  res.wasAcknowledged()){
+        if( res == null  && !idToDelete.isEmpty() ){
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,"Error in deleting the booking request");
         }
 

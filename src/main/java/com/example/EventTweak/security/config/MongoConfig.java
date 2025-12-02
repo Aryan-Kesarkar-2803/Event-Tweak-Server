@@ -13,16 +13,18 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 @Configuration
 public class MongoConfig {
 
-//    private final Dotenv dotenv = Dotenv.load();
+    private final Dotenv dotenv = Dotenv.load();
 
 
     @Bean
     public MongoClient mongoClients() {
         return MongoClients.create(System.getenv("MONGO_DB_URI"));
+//        return MongoClients.create(dotenv.get("MONGO_DB_URI"));
     }
 
     @Bean
     public MongoTemplate mongoTemplate() {
         return new MongoTemplate(mongoClients(), System.getenv("DB_NAME"));
+//        return new MongoTemplate(mongoClients(), dotenv.get("DB_NAME"));
     }
 }
